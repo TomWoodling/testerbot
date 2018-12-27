@@ -1,13 +1,18 @@
 function Get-Greeting {
+    [PoshBot.BotCommand(
+        Command = $false,
+        CommandName = 'Get-Greeting',
+        TriggerType = 'regex',
+        #Regex replaces placeholder below during docker build
+        Regex = "%"
+    )]
     [cmdletbinding()]
-[PoshBot.BotCommand(
-    CommandName = 'Get-Greeting',
-    Aliases = ('hi', 'hello'),
-    Permissions = 'read'
-)]
-param(
-    $Bot = 'a'
-)
+    Param
+    (
+        $bot,
+        [parameter(ValueFromRemainingArguments = $true)]
+        [object[]]$Arguments
+    )
 
 $greetz = @('hi there :bowtie:','good day :sun_with_face:','nice to see you :robot_face:','yo :thumbsup_all:')
 

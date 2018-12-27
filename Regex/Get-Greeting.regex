@@ -1,0 +1,1 @@
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(hi|hello|good\sday|yo))|(^(hi|hello|good\sday|yo)\s$env:BOTNAME))
