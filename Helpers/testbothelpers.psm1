@@ -300,3 +300,14 @@ function New-RegexPlug {
     (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1").replace('%',$boop) | Out-File "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Public\$plugname.ps1" -Force
     $script:plugs.Add($plugname) > $null
 }
+
+function New-BuiltinMod {
+    [cmdletbinding()]
+    param (
+        $pluggers
+        )
+        
+    $woop = (gci "C:\Program Files\WindowsPowerShell\Modules\PoshBot").name        
+    (Invoke-RestMethod -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Builtin/Builtin_template").replace("%1%",",`'$($pluggers -join "','")`'") -OutFile "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Builtin.psd1"
+
+}
