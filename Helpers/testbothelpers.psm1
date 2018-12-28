@@ -231,6 +231,7 @@ function New-BuiltInPlug {
         $plugname,
         $mod
         )
+    $mod = $mod+'_mod'
     $woop = (gci "C:\Program Files\WindowsPowerShell\Modules\PoshBot").name    
     cd "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Public\"
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
