@@ -297,7 +297,8 @@ function New-RegexPlug {
         )
     $woop = (gci "C:\Program Files\WindowsPowerShell\Modules\PoshBot").name
     $boop = (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Regex/$plugname.regex").replace('$env:BOTNAME',"$env:BOTNAME")
-    (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1").replace('%',$boop) | Out-File "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Public\$plugname.ps1" -Force
+    $gip = (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1").replace('%',$boop) 
+    $gip | Out-File "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Public\$plugname.ps1" -Force
     $script:plugs.Add($plugname) > $null
 }
 
@@ -308,6 +309,7 @@ function New-BuiltinMod {
         )
 
     $woop = (gci "C:\Program Files\WindowsPowerShell\Modules\PoshBot").name        
-    (Invoke-RestMethod -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Builtin/Builtin_template").replace("%1%",",`'$($pluggers -join "','")`'") | Out-File "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Builtin.psd1"
+    $kip = (Invoke-RestMethod -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Builtin/Builtin_template").replace("%1%",",`'$($pluggers -join "','")`'") 
+    $kip | Out-File "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Builtin.psd1" -Force
 
 }
