@@ -15,6 +15,7 @@ function Test-Regex {
     )]
     [cmdletbinding()]
     param(
+        $Bot,
         [parameter(ValueFromRemainingArguments = $true)]
         [object[]]$Arguments
     )
