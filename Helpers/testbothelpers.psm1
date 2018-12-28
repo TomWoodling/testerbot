@@ -295,6 +295,7 @@ function New-RegexPlug {
         $plugname,
         $mod
         )
+    $mod = $mod+'_mod'    
     $woop = (gci "C:\Program Files\WindowsPowerShell\Modules\PoshBot").name
     $boop = (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Regex/$plugname.regex").replace('$env:BOTNAME',"$env:BOTNAME")
     $gip = (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1").replace('%',$boop) 
