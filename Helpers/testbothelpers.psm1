@@ -306,8 +306,8 @@ function New-BuiltinMod {
     param (
         $pluggers
         )
-        
+
     $woop = (gci "C:\Program Files\WindowsPowerShell\Modules\PoshBot").name        
-    (Invoke-RestMethod -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Builtin/Builtin_template").replace("%1%",",`'$($pluggers -join "','")`'") -OutFile "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Builtin.psd1"
+    (Invoke-RestMethod -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Builtin/Builtin_template").replace("%1%",",`'$($pluggers -join "','")`'") | OutFile "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Builtin.psd1"
 
 }
