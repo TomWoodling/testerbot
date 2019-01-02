@@ -20,8 +20,13 @@ function Test-Regex {
         [object[]]$Arguments
     )
 
-    $first = $Arguments[1]
-    $second = $Arguments[2]
+    $urbs = new-object system.collections.arraylist
+    $i = 0
+    foreach ($arg in $arguments) {
+        $urg = "$i is $arg"
+        $urbs.add($urg) > $null
+        $i = $i+1
+    }
 
-    Return "I get $first for the first part and $second for the second - from $arguments"
+    Return $urbs
 }
