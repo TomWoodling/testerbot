@@ -1,0 +1,1 @@
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(cat[\s-]bomb|cat[\s-]me))|(^(cat[\s-]bomb|cat[\s-]me)\s$env:BOTNAME))\s(.*)
