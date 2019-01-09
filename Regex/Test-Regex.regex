@@ -1,1 +1,1 @@
-($env:BOTNAME\s((get.*group.*for(\suser)*).*|.*membership.*))\s([\w\d-&.]+$)
+($env:BOTNAME\s((get.*direct.*reports\s*(for(\suser))*))\s*|.*reports[\s-]to)\s([\w\d\s-&.]+$)
