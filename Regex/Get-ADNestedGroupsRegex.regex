@@ -1,0 +1,1 @@
+(woop\s((get.*groups.*in)|.*groups[\s-]in))\s([\s\w\d-&.]+)

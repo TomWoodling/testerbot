@@ -1,0 +1,1 @@
+(woop\s((find.?(AD|ad)?.?groups)|.?search[\s-](AD|ad)))\s([\s\w\d-&.]+)
