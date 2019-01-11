@@ -44,7 +44,7 @@ Add-Type @"
     }
 "@
 
-    $group = $Arguments[4]
+    $group = $Arguments[7]
     #Get details for snippet
     $path="$env:BOTROOT\csv\"
     $mitle = $Group.Replace(' ','_')
