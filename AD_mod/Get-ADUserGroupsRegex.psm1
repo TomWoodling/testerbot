@@ -10,7 +10,7 @@ function Get-ADUserGroupsRegex {
     
     [PoshBot.BotCommand(
         Command = $false,
-        CommandName = 'Get-ADDirectRepsRegex',
+        CommandName = 'Get-ADUserGroupsRegex',
         TriggerType = 'regex',
         Regex = "%"
     )]
