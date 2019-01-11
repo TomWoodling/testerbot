@@ -1,1 +1,1 @@
-($env:BOTNAME\s((find.?(AD|ad)?.?groups)|.?search[\s-](AD|ad)))\s([\s\w\d-&.]+)
+($env:BOTNAME\s((find.?(AD|ad)?.?groups)|.?search[\s-](AD|ad)))\s([\s\w\d-&.'"]+)
