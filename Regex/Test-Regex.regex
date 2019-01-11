@@ -1,1 +1,1 @@
-(?(?=^testings)(testings\s(test\sregex|regex\stest|regexo))|(^(test\sregex|regex\stest|regexo)\stestings))\s([\w\d\s-&.]+$)
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(test\sregex|regex\stest|regexo))|(^(test\sregex|regex\stest|regexo)\s$env:BOTNAME))\s([\w\d\s-&.]+$)
