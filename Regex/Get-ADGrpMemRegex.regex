@@ -1,1 +1,1 @@
-($env:BOTNAME\s((get.*(users|members).*(of|in)(\sgroup)*)|.*adgroup))\s([\s\w\d-&.'"]+)
+($env:BOTNAME\s((get.*(users|members).*(of|in)(\sgroup)*)|.*adgroup))\s([\s\w\d-&.`'`"]+)
