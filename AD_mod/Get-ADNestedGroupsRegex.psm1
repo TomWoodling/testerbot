@@ -52,7 +52,7 @@ $title = "$($mitle.replace('&amp;','-')).ps1"
 # Create a hashtable for the results
 $result = @{}
 
-$gwipe = $group.trim("'").trim('"')
+$gwipe = $group.Replace("'","").Replace('"','')
 
 $go = Get-ADGroup -Identity $gwipe
 
