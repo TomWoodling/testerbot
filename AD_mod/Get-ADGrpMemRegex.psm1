@@ -53,16 +53,14 @@ Add-Type @"
     # Create a hashtable for the results
     $result = @{}
     
-    $birp = noquotez -bloop $group
-
-    $gwipe = $($birp.replace('&amp;','&'))
+    $gwipe = $group.trim("'").trim('"')
 
     $go = Get-ADGroup -Identity $gwipe
     
 
     try {
-        $gwurp = "Get-ADGroupMember -Identity $gwipe -Recursive | select name,samaccountname"
-        $gwoops = Invoke-Expression -Command $gwurp
+        #$gwurp = "Get-ADGroupMember -Identity $gwipe -Recursive | select name,samaccountname"
+        $gwoops = Get-ADGroupMember -Identity $gwipe -Recursive | select name,samaccountname
         $outle = "$($mitle.replace('&amp;','-')).csv"
         $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
         New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM
