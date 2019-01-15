@@ -61,7 +61,7 @@ Add-Type @"
     
 
     try {
-        $gwurp = "Get-ADGroupMember -Identity `"$gwipe`" -Recursive | select name,samaccountname"
+        $gwurp = "Get-ADGroupMember -Identity $gwipe -Recursive | select name,samaccountname"
         $gwoops = Invoke-Expression -Command $gwurp
         $outle = "$($mitle.replace('&amp;','-')).csv"
         $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
