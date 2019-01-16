@@ -35,7 +35,7 @@ Alternate command syntax:
  i) adbot membership t.woodling 
  ii) ! groups4user t.woodling
 2. adbot reports to t.woodling - gets any users reporting to t.woodling (if there are any)
-Altername command syntax:
+Alternate command syntax:
  i) adbot get direct reports for user t.woodling
  ii) ! reports-to t.woodling
 
@@ -47,7 +47,7 @@ Alternate command syntax:
  i) adbot get members of group gl-it-services
  ii) ! adgroup gl-it-services
 2. adbot get groups in gl-it-services - gets only nested groups in gl-it-services
-Altername command syntax:
+Alternate command syntax:
  i) adbot groups in gl-it-services
  ii) ! groups-in gl-it-services
  "
