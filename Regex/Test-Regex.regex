@@ -1,1 +1,1 @@
-(?(?=^$env:BOTNAME)($env:BOTNAME\s(test\sregex|regex\stest|regexo))|(^(test\sregex|regex\stest|regexo)\s$env:BOTNAME))\s([\w\d\s-&.]+$)
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(get\shelp|help))|(^(get\shelp|help)\s$env:BOTNAME))\s*([\w\d\s-&.]+$)*
