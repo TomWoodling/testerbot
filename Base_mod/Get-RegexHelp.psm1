@@ -52,9 +52,9 @@ Altername command syntax:
  ii) ! groups-in gl-it-services"
 
     if ($Arguments) {
-        if ($Arguments[5] -match 'user' -and $Arguments[5] -notmatch 'group') {$hulp = $base+$usser}
-        elseif ($Arguments[5] -notmatch 'user' -and $Arguments[5] -match 'group') {$hulp = $base+$grup}
-        elseif ($Arguments[5] -match 'user' -and $Arguments[5] -match 'group') {$hulp = $base+$usser+$grup}
+        if ($Arguments[4] -match 'user' -and $Arguments[4] -notmatch 'group') {$hulp = $base+$usser}
+        elseif ($Arguments[4] -notmatch 'user' -and $Arguments[4] -match 'group') {$hulp = $base+$grup}
+        elseif ($Arguments[4] -match 'user' -and $Arguments[4] -match 'group') {$hulp = $base+$usser+$grup}
         else {$hulp = $base}
         }
     else {$hulp = $base}
