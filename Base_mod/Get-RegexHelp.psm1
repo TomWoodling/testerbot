@@ -44,12 +44,12 @@ Altername command syntax:
     $grup = "Group query examples:
 1. adbot get users in gl-it-services - gets all members of gl-it-services
 Alternate command syntax:
- i) adbot get members of group gl-it-services'
+ i) adbot get members of group gl-it-services
  ii) ! adgroup gl-it-services
 2. adbot get groups in gl-it-services - gets only nested groups in gl-it-services
 Altername command syntax:
  i) adbot groups in gl-it-services
- ii) ! groups-in gl-it-services"
+ ii) ! groups-in gl-it-services
 
     if ($Arguments) {
         if ($Arguments[4] -match 'user' -and $Arguments[4] -notmatch 'group') {$hulp = $base+$usser}
