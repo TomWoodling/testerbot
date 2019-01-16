@@ -50,6 +50,7 @@ Alternate command syntax:
 Altername command syntax:
  i) adbot groups in gl-it-services
  ii) ! groups-in gl-it-services
+ "
 
     if ($Arguments) {
         if ($Arguments[4] -match 'user' -and $Arguments[4] -notmatch 'group') {$hulp = $base+$usser}
