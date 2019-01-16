@@ -1,0 +1,1 @@
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(get\shelp|help))|(^(get\shelp|help)\s$env:BOTNAME))\s*([\w\d\s-&.]+$)*
