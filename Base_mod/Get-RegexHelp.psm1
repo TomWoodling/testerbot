@@ -19,37 +19,37 @@ function Get-RegexHelp {
         [parameter(ValueFromRemainingArguments = $true)]
         [object[]]$Arguments
     )
-    $base = ":adbot: ADbot attempts to identify commands using regex matches - try following these examples:
-1. adbot get groups for t.woodling - gets all groups t.woodling is member of
-2. adbot get users in gl-it-services - gets all members of gl-it-services
-3. adbot get groups in gl-it-services - gets only nested groups in gl-it-services
-4. adbot reports to t.woodling - gets any users reporting to t.woodling (if there are any)
-5. adbot search AD t-serv - returns any group that contains the string 't-serv'
-*Important note* quotes are no longer required for group names containing whitespace or special characters!
-*Further Note* Any old commands you used with adbot will still work, but you should replace the adbot with !
+    $base = ":$env:BOTNAME: $env:BOTNAME attempts to identify commands using regex matches - try following these examples:
+1. $env:BOTNAME get groups for a.person - gets all groups a.person is member of
+2. $env:BOTNAME get users in group of users & things - gets all users in group of users & things
+3. $env:BOTNAME get groups in group of users & things - gets only nested groups in group of users & things
+4. $env:BOTNAME reports to a.person - gets any users reporting to a.person (if there are any)
+5. $env:BOTNAME search AD t-serv - returns any group that contains the string 't-serv'
+*Important note* quotes are no longer required for group names containing whitespace or special characters.
+*Further Note* Any old commands you used with $env:BOTNAME will still work, but you should replace the $env:BOTNAME with $env:ALT
 
 "
     $usser = "User query examples:
-1. adbot get groups for t.woodling - gets all groups t.woodling is member of.
+1. $env:BOTNAME get groups for a.person - gets all groups a.person is member of.
 Alternate command syntax:
- i) adbot membership t.woodling 
- ii) ! groups4user t.woodling
-2. adbot reports to t.woodling - gets any users reporting to t.woodling (if there are any)
+ i) $env:BOTNAME membership a.person 
+ ii) $env:ALT groups4user a.person
+2. $env:BOTNAME reports to a.person - gets any users reporting to a.person (if there are any)
 Alternate command syntax:
- i) adbot get direct reports for user t.woodling
- ii) ! reports-to t.woodling
+ i) $env:BOTNAME get direct reports for user a.person
+ ii) $env:ALT reports-to a.person
 
 "
 
     $grup = "Group query examples:
-1. adbot get users in gl-it-services - gets all members of gl-it-services
+1. $env:BOTNAME get users in group of users & things - gets all members of group of users & things
 Alternate command syntax:
- i) adbot get members of group gl-it-services
- ii) ! adgroup gl-it-services
-2. adbot get groups in gl-it-services - gets only nested groups in gl-it-services
+ i) $env:BOTNAME get members of group group of users & things
+ ii) $env:ALT adgroup group of users & things
+2. $env:BOTNAME get groups in group of users & things - gets only nested groups in group of users & things
 Alternate command syntax:
- i) adbot groups in gl-it-services
- ii) ! groups-in gl-it-services
+ i) $env:BOTNAME groups in group of users & things
+ ii) $env:ALT groups-in group of users & things
  "
 
     if ($Arguments) {
