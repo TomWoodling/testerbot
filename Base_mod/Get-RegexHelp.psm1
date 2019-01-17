@@ -19,7 +19,7 @@ function Get-RegexHelp {
         [parameter(ValueFromRemainingArguments = $true)]
         [object[]]$Arguments
     )
-    $base = ":$env:BOTNAME: $env:BOTNAME attempts to identify commands using regex matches - try following these examples:
+    $base = ":adbot: $env:BOTNAME attempts to identify commands using regex matches - try following these examples:
 1. $env:BOTNAME get groups for a.person - gets all groups a.person is member of
 2. $env:BOTNAME get users in group of users & things - gets all users in group of users & things
 3. $env:BOTNAME get groups in group of users & things - gets only nested groups in group of users & things
