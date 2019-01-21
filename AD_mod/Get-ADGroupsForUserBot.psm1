@@ -44,7 +44,8 @@ function Get-ADGroupsForUserBot {
         }
         else {
             $result.success = $false
-            $result.output = "No results for $user :crying_cat_face:"        }
+            $result.output = "No results for $user :crying_cat_face: - they may not have been added to any AD groups yet"
+            }
         }
     catch {
     
