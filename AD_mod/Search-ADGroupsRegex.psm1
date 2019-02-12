@@ -57,7 +57,7 @@ Add-Type @"
     $gwipe = $($birp.replace('&amp;','&'))
 
     
-
+<#
     try {
         $gwurp = "Get-ADGroup -Filter {name -like `'*$gwipe*`'} -Properties description | select name,description"
         $gwoops = Invoke-Expression -Command $gwurp
@@ -74,7 +74,8 @@ Add-Type @"
         $result.success = $false
         }
 
+#>
 
-
-    return $result.output 
+    #return $result.output 
+    return $gwipe
     }

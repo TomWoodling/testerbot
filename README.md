@@ -4,7 +4,8 @@ The aim here is to produce a bot that can be called using docker, use regex to i
 
 To begin, the modules here can be used with a dockerfile to add extra built in commands to poshbot so they are immediately available.
 
-**NB:** Sample dockerfile (for Windows Server 2016 - change the first line for other server versions)
+**NB:** Sample dockerfile (for Windows Server 2016 - change the first line for other server versions).
+
 **NB(again):** To run the AD commands you'll need to enable the container with AD support - see https://blogs.msdn.microsoft.com/containerstuff/2017/01/30/create-a-container-with-active-directory-support/
 
 ```
