@@ -54,7 +54,7 @@ Add-Type @"
     
     $birp = noquotez -bloop $object
 
-    $gwipe = $($birp.replace('&amp;','&').replace("'","").replace('"','"'))
+    $gwipe = $($birp.replace('&amp;','&').replace("'","").replace('"',''))
 
     
     try {
