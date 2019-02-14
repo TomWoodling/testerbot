@@ -59,8 +59,7 @@ Add-Type @"
 
     
     try {
-        $gwurp = "Get-ADGroup -Filter {name -like `'*$gwipe*`'} -Properties description | select name,description"
-        $gwoops = Invoke-Expression -Command $gwurp
+        $gwoops = Get-ADGroup -Filter {name -like `'*$gwipe*`'} -Properties description | select name,description
         $outle = "$($mitle.replace('&amp;','-')).csv"
         $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
         New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM
