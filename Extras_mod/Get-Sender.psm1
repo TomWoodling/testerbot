@@ -10,5 +10,5 @@
         $Bot
     )
 
-    return $PoshBotContext.FromName
+    return $PoshBotContext
 }
