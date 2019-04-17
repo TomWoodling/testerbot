@@ -1,1 +1,1 @@
-(?(?=^$env:BOTNAME)($env:BOTNAME\s(get\sdadjoke|dadjoke|get\sjoke|joke))|(^(get\sdadjoke|dadjoke|get\sjoke|joke)\s$env:BOTNAME))\s*([\w\d\s-&.]+$)*
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(get[\s-]dadjoke|dadjoke|get[\s-]joke|joke))|(^(get[\s-]dadjoke|dadjoke|get[\s-]joke|joke)\s$env:BOTNAME))\s*([\w\d\s-&.]+$)*
