@@ -1,4 +1,12 @@
 ﻿function Get-Dadjoke {
+    <#
+    .SYNOPSIS
+        Displays a Grafana graph for a given type for a server.
+    .EXAMPLE
+        grafana cpu server01
+    .EXAMPLE
+        grafana disk myotherserver02
+    #>
     [PoshBot.BotCommand(
         Command = $false,
         CommandName = 'Get-Dadjoke',
