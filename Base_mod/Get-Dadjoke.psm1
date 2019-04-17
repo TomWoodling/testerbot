@@ -1,5 +1,5 @@
-﻿function Get-Dadjoke {
-    <#
+function Get-Dadjoke {
+<#
     .SYNOPSIS
         Displays a Grafana graph for a given type for a server.
     .EXAMPLE
