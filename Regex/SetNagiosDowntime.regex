@@ -1,0 +1,1 @@
+(?(?=^$env:BOTNAME)($env:BOTNAME\s(set\sdowntime|nagios\sdowntime)))\s*([\w\d\s-&.]+)\s([\d]+$)

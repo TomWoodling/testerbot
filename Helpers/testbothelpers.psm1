@@ -144,26 +144,29 @@ param (
     $tolang='en'     
     )
 
-$orglang = Get-LanguageOfPhrase -phrase $phrase
-
 $miik = Get-TranslateToken
 
 $muuk = "Bearer" + " " + $miik
 
+$body = "[{'Text':`"$phrase`"}]"
+
+$leng = [System.Text.Encoding]::UTF8.GetByteCount($body)
+
 $headers = @{
     'authorization'=$muuk
-    'from'=$orglang
+    'Content-Type'='application/json'
+    #'Content-Length'=$leng
     }
 
-$url = "https://api.microsofttranslator.com/v2/http.svc/Translate?text=$phrase&to=$tolang"
+$url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=en"
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+try {
+$ris = Invoke-RestMethod -Uri $url -Headers $headers -Method Post -Body $body
+}
+catch [System.SystemException]{Write-Host -ForegroundColor green $_; $mop = $_}
 
-$ris = Invoke-RestMethod -Uri $url -Headers $headers -Method Get 
-
-$script:opine = $ris.string.'#text'
-
-return $script:opine
+return $ris.translations.text
 
 }
 
