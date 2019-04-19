@@ -34,7 +34,7 @@ function Set-NagiosDowntime {
     else {
         $wimps = New-Object System.Collections.ArrayList
         foreach ($womp in $womps) {
-            if ($target -match $womp) {
+            if ($womp -match $target) {
                 $wimps.Add($womp) > $null
                 }
             }
