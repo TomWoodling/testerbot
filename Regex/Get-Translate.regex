@@ -1,1 +1,1 @@
-(?(?=^$env:BOTNAME)($env:BOTNAME\s(get\stranslation|translate)))\s*([\w\d\s-&.]+$)*
+(?(?=^$env:BOTNAME))($env:BOTNAME\s(get\stranslation|translate))\s*([\w\d\s-&.]+$)*
