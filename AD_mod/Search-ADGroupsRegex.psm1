@@ -59,7 +59,7 @@ Add-Type @"
 
     
     try {
-        $gwoops = Get-ADObject -Filter "name -like '*$gwipe*'" -Properties description | select name,description,objectclass
+        $gwoops = Get-ADObject -Filter "name -like '*$gwipe*'" -Properties description | select name,description,objectclass | Sort-Object name
         $outle = "$($mitle.replace('&amp;','-')).csv"
         $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
         New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM

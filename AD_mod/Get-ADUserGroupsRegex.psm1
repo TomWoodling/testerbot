@@ -38,7 +38,7 @@ function Get-ADUserGroupsRegex {
         if ($groups.memberof) {
         # Set a successful result
         $result.success = $true
-        $groups.memberof | select name | Export-Csv -Path "$path\$title" -Force -NoTypeInformation
+        $groups.memberof | select name | Sort-Object name | Export-Csv -Path "$path\$title" -Force -NoTypeInformation
         $result.output = "I have sent the results as a DM :bowtie:"        
         New-PoshBotFileUpload -Path "$path\$title" -Title $title -DM
         #Remove-Item -Path "$path\$title" -Force
