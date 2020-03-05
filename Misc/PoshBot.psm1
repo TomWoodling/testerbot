@@ -7270,6 +7270,7 @@ class SlackConnection : Connection {
         $token = $this.Config.Credential.GetNetworkCredential().Password
         $url = "https://slack.com/api/rtm.start?token=$($token)&pretty=1"
         try {
+            [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
             $r = Invoke-RestMethod -Uri $url -Method Get -Verbose:$false
             $this.LoginData = $r
             if ($r.ok) {
