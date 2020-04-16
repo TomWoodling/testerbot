@@ -196,7 +196,7 @@ Write-Host -ForegroundColor Green url will be "https://raw.githubusercontent.com
 New-ModuleManifest @params
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 irm -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1" -OutFile "$plugname.psm1"
-$plugname >> "C:\Users\ContainerAdministrator\Documents\plugs.txt"
+$plugname >> "C:\Users\$env:USERNAME\Documents\plugs.txt"
 }
 
 function Set-BotPlugs {
@@ -239,7 +239,7 @@ function New-BuiltInPlug {
     cd "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Public\"
     [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     irm -uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1" -OutFile "$plugname.ps1"
-    $plugname >> "C:\Users\ContainerAdministrator\Documents\plugs.txt"
+    $plugname >> "C:\Users\$env:USERNAME\Documents\plugs.txt"
 }
 
 function Remove-Quotes {
@@ -304,7 +304,7 @@ function New-RegexPlug {
     $boop = (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/Regex/$plugname.regex").replace('$env:BOTNAME',"$env:BOTNAME")
     $gip = (irm -Uri "https://raw.githubusercontent.com/TomWoodling/testerbot/master/$mod/$plugname.psm1").replace('%',$boop) 
     $gip | Out-File "C:\Program Files\WindowsPowerShell\Modules\PoshBot\$woop\Plugins\Builtin\Public\$plugname.ps1" -Force
-    $plugname >> "C:\Users\ContainerAdministrator\Documents\plugs.txt"
+    $plugname >> "C:\Users\$env:USERNAME\Documents\plugs.txt"
 }
 
 function New-BuiltinMod {
