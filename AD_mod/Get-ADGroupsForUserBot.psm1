@@ -28,9 +28,10 @@ function Get-ADGroupsForUserBot {
     # Create a hashtable for the results
     $result = @{}
 
-    $go = Get-ADUser -Identity $user
+    
 
     try {
+        Get-ADUser -Identity $user -ErrorAction Stop
         # Use ErrorAction Stop to make sure we can catch any errors
         $groups = Get-UserGroupMembershipRecursive -UserName "$User"
     
