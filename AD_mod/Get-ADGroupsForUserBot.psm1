@@ -31,7 +31,7 @@ function Get-ADGroupsForUserBot {
     
 
     try {
-        Get-ADUser -Identity $user -ErrorAction Stop
+        Get-ADUser -Identity $user
         # Use ErrorAction Stop to make sure we can catch any errors
         $groups = Get-UserGroupMembershipRecursive -UserName "$User"
     

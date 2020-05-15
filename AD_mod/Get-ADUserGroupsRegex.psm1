@@ -29,9 +29,10 @@ function Get-ADUserGroupsRegex {
     # Create a hashtable for the results
     $result = @{}
 
-    $go = Get-ADUser -Identity $user
+    
 
     try {
+        $go = Get-ADUser -Identity $user
         # Use ErrorAction Stop to make sure we can catch any errors
         $groups = Get-UserGroupMembershipRecursive -UserName "$User"
     
