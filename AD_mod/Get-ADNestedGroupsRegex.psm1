@@ -54,24 +54,27 @@ $result = @{}
 
 $gwipe = $group.Replace("'","").Replace('"','')
 
-$go = Get-ADGroup -Identity $gwipe
+$go = Get-ADGroup -filter "samaccountname -like '$gwipe'"
 
-try {
-    # Use ErrorAction Stop to make sure we can catch any errors
-    #$gurps = "Get-ADNestedGroups -GroupName $gwipe -ErrorAction stop | select name"
-    $gwoops = Get-ADNestedGroups -GroupName $gwipe -ErrorAction stop | select name | Sort-Object name
-    $outle = "$($mitle.replace('&amp;','-')).csv"
-    $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
-    New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM
-    $result.output = "Request for $gwipe processed - results sent as a DM :bowtie:"
-    # Set a successful result
-    $result.success = $true
+if ($go) {
+    try {
+        # Use ErrorAction Stop to make sure we can catch any errors
+        $gurps = "Get-ADNestedGroups -GroupName `'$gwipe`' -ErrorAction stop | select name"
+        $gwoops = Invoke-Expression -Command $gurps
+        $outle = "$($mitle.replace('&amp;','-')).csv"
+        $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
+        New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM
+        $result.output = "Request for $gwipe processed - results sent as a DM :bowtie:"
+        # Set a successful result
+        $result.success = $true
+        }
+    catch {
+        $result.output = "Group $gwipe does not exist :cold_sweat:"        
+        # Set a failed result
+        $result.success = $false
+        }
     }
-catch {
-    $result.output = "Group $gwipe does not exist :cold_sweat:"        
-    # Set a failed result
-    $result.success = $false
-    }
+else {$result.output = "Group $gwipe does not exist :cold_sweat: - you can try search ad command for a partial string match"}
 # Return the result and convert it to json, then attach a snippet with the results
     return $result.output
     Remove-Item -Force -Path "$path$title"

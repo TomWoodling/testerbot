@@ -53,28 +53,27 @@ Add-Type @"
     # Create a hashtable for the results
     $result = @{}
     
-    $birp = noquotez -bloop $group
+    $gwipe = $group.Replace("'","").Replace('"','')
 
-    $gwipe = $($birp.replace('&amp;','&'))
-
-    $go = Get-ADGroup -Identity $gwipe
+    $go = Get-ADGroup -filter "samaccountname -like '$gwipe'"
     
-
-    try {
-        $gwurp = "Get-ADGroupMember -Identity `"$gwipe`" -Recursive | select name,samaccountname | Sort-Object name"
-        $gwoops = Invoke-Expression -Command $gwurp
-        $outle = "$($mitle.replace('&amp;','-')).csv"
-        $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
-        New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM
-        $result.output = "Request for $gwipe processed - results sent as a DM :bowtie:"
-        # Set a successful result
-        $result.success = $true
+    if ($go) {
+        try {
+            #$gwurp = "Get-ADGroupMember -Identity $gwipe -Recursive | select name,samaccountname"
+            $gwoops = Get-ADGroupMember -Identity $gwipe -Recursive | select name,samaccountname | Sort-Object name
+            $outle = "$($mitle.replace('&amp;','-')).csv"
+            $gwoops | Export-Csv -Path "$path\$outle" -Force -NoTypeInformation
+            New-PoshBotFileUpload -Path "$path\$outle" -Title $outle -DM
+            $result.output = "Request for $gwipe processed - results sent as a DM :bowtie:"
+            # Set a successful result
+            $result.success = $true
+            }
+        catch {
+            $result.output = "Group $gwipe does not exist :cold_sweat:"        
+            # Set a failed result
+            $result.success = $false
+            }
         }
-    catch {
-        $result.output = "Group $gwipe does not exist :cold_sweat:"        
-        # Set a failed result
-        $result.success = $false
-        }
+    else {$result.output = "Group $gwipe does not exist :cold_sweat:"}
     return $result.output
     Remove-Item -Force -Path "$path$title"
-}
