@@ -28,7 +28,7 @@ function Get-ADUserGroupsRegex {
     
     # Create a hashtable for the results
     $result = @{}
-    $filt = "samaccountname -like "+"""$User"""
+    $filt = "samaccountname -like "+"$User"
     
 
     try {
