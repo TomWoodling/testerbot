@@ -28,25 +28,30 @@ function Get-ADUserGroupsRegex {
     
     # Create a hashtable for the results
     $result = @{}
-
+    $filt = "samaccountname -like "+"""$User"""
     
 
     try {
-        $go = Get-ADUser -Identity $user
-        # Use ErrorAction Stop to make sure we can catch any errors
-        $groups = Get-UserGroupMembershipRecursive -UserName "$User"
-    
-        if ($groups.memberof) {
-        # Set a successful result
-        $result.success = $true
-        $groups.memberof | select name | Sort-Object name | Export-Csv -Path "$path\$title" -Force -NoTypeInformation
-        $result.output = "I have sent the results as a DM :bowtie:"        
-        New-PoshBotFileUpload -Path "$path\$title" -Title $title -DM
-        #Remove-Item -Path "$path\$title" -Force
-        }
+        $go = Get-ADUser -Filter $filt
+        if ($go) {
+            $groups = Get-UserGroupMembershipRecursive -UserName "$User"
+        
+            if ($groups.memberof) {
+            # Set a successful result
+            $result.success = $true
+            $groups.memberof | select name | Export-Csv -Path "$path\$title" -Force -NoTypeInformation
+            $result.output = "I have sent the results as a DM :bowtie:"        
+            New-PoshBotFileUpload -Path "$path\$title" -Title $title -DM
+            #Remove-Item -Path "$path\$title" -Force
+            }
+            else {
+                $result.success = $false
+                $result.output = "No results for $user :crying_cat_face: - they may not have been added to any AD groups yet"
+                }
+            }
         else {
             $result.success = $false
-            $result.output = "No results for $user :crying_cat_face: - they may not have been added to any AD groups yet"
+            $result.output = "$user not found - you could try the search AD command for a partial string match :crying_cat_face:"            
             }
         }
     catch {
