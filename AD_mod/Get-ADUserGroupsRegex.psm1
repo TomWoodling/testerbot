@@ -28,11 +28,10 @@ function Get-ADUserGroupsRegex {
     
     # Create a hashtable for the results
     $result = @{}
-    $filt = "samaccountname -like "+"$User"
     
 
     try {
-        $go = Get-ADUser -Filter $filt
+        $go = Get-ADUser -Filter "samaccountname -like '$User'"
         if ($go) {
             $groups = Get-UserGroupMembershipRecursive -UserName "$User"
         
