@@ -77,3 +77,4 @@ Add-Type @"
     else {$result.output = "Group $gwipe does not exist :cold_sweat:"}
     return $result.output
     Remove-Item -Force -Path "$path$title"
+}
