@@ -28,6 +28,7 @@ function Get-RegexHelp {
 *Important note* quotes are no longer required for group names containing whitespace or special characters.
 *Further Note* Any old commands you used with $env:BOTNAME will still work, but you should replace the $env:BOTNAME with $env:ALT
 
+$env:HELPURL
 "
     $usser = "User query examples:
 1. $env:BOTNAME get groups for USERNAME - gets all groups *USERNAME* is member of.
