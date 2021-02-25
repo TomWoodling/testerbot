@@ -173,7 +173,7 @@ $grat = New-Object System.Collections.ArrayList
 $Members = Get-ADGroupMember -Identity $GroupName
 $members | % {
     if($_.ObjectClass -eq "group") {
-        $grot = $_ | select @{n='name';e={$_.name}}, @{n='SAM';e={$_.samaccountname}}
+        $grot = $_ | select @{n='name';e={$_.name}}, @{n='SAM';e={$_.samaccountname}}, @{n='DisplayName';e={$_.DisplayName}}
         $grat.Add($grot) > $null
     } else {
     }
